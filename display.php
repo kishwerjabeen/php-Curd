@@ -4,7 +4,7 @@
 <head>
 
     <?php include 'links.php' ?>
-    <title>Document</title>
+    <title>Display</title>
 </head>
 
 <body>
@@ -78,7 +78,7 @@ while ($i < 10) {
 
                             <td><a href="updates.php?id=<?php echo $res['id'] ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update"> <i class="fas fa-edit"></i></a></td>
                             <td>
-                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                <a href="delete.php?idth=<?php echo $res['id'] ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                             </td>
 
                         </tr>
@@ -93,6 +93,7 @@ while ($i < 10) {
 
                 </tbody>
             </table>
+
         </div>
     </div>
     </div>
