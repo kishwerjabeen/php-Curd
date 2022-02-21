@@ -48,7 +48,7 @@
         </form>
 
         <br>
-        <a href="display.php" class="btn btn-success btn-block">Link Button</a>
+        <a href="display.php" class="btn btn-success btn-block">Display</a>
     </div>
 
 </body>

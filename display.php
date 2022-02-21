@@ -76,7 +76,7 @@ while ($i < 10) {
                             <td> <?php echo $res['jobpost'] ?></td>
 
 
-                            <td><a href="updates.php" data-bs-toggle="tooltip" data-bs-placement="top" title="Update"> <i class="fas fa-edit"></i></a></td>
+                            <td><a href="updates.php?id=<?php echo $res['id'] ?>" data-bs-toggle="tooltip" data-bs-placement="top" title="Update"> <i class="fas fa-edit"></i></a></td>
                             <td>
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </td>
