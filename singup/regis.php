@@ -146,7 +146,7 @@ session_start();
                                         </div>
 
                                     </form>
-                                    <p>Have an Account <a href="#">Login</a></p>
+                                    <p>Have an Account <a href="login.php">Login</a></p>
                                 </div>
 
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
