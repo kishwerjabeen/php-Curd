@@ -1,3 +1,10 @@
+<?php
+session_start();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,46 +66,6 @@
     <?php
             }
         }
-
-
-
-
-
-
-
-
-
-
-        /*   // verification
-        $verpass = password_verify($password, $pass);
-        $confirmverifypass = password_verify($cpassword, $cpass);
- */
-
-
-
-
-        /*       else {
-            if ($verpass == $confirmverifypass) {
-                $insertQury = "INSERT INTO reg( username, email, mobile, password, cpassword) VALUES ('$username','$email','$mobile','$pass','$cpass')";
-                $iqury = mysqli_query($conn, $insertQury);
-
-                if ($iqury) {
-    ?>
-                    <script>
-                        alert('Inserted hogya bacho');
-                    </script>
-                <?php
-                } else {
-                ?>
-                    <script>
-                        alert('Inserted Mahi howa bacho');
-                    </script>
-    <?php
-                }
-            } else {
-                echo "Password not Matching";
-            }
-        } */
     }
 
 
@@ -127,7 +94,7 @@
                                     </div>
                                     <br>
                                     <br>
-                                    <form class="mx-1 mx-md-4" action="" method="POST">
+                                    <form class="mx-1 mx-md-4" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
