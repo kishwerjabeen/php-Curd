@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,31 @@
 
 <body>
     <?php
+    include '../conn.php';
+    if (isset($_POST['submit'])) {
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+        $emailQuery = "SELECT * FROM reg WHERE email = '$email'";
+        $siguery = mysqli_query($conn, $emailQuery);
+        $emailCount = mysqli_num_rows($siguery);
+
+        if ($emailCount) {
+            $email_pass = mysqli_fetch_assoc($siguery);
+
+            $db_pass = $email_pass['password'];
+
+            $pass_decode = password_verify($password, $db_pass);
+
+            if ($pass_decode) {
+                echo "login succesfull";
+            } else {
+                echo "Password Incorrect";
+            }
+        } else {
+            echo "email invalid";
+        }
+    }
     ?>
 
 
@@ -64,7 +91,7 @@
 
 
                                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                                            <button type="submit" name="submit" class="btn btn-primary btn-lg">Register</button>
+                                            <button type="submit" name="submit" class="btn btn-primary btn-lg">Login</button>
                                         </div>
 
                                     </form>
