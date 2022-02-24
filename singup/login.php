@@ -26,10 +26,21 @@ session_start();
 
             $db_pass = $email_pass['password'];
 
+            $_SESSION['username'] = $email_pass['username'];
+
             $pass_decode = password_verify($password, $db_pass);
 
             if ($pass_decode) {
                 echo "login succesfull";
+
+    ?>
+                <script>
+                    location.replace("home.php")
+                </script>
+    <?php
+
+
+
             } else {
                 echo "Password Incorrect";
             }
