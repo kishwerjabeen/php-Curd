@@ -21,14 +21,64 @@
         $pass = password_hash($password, PASSWORD_BCRYPT);
         $cpass = password_hash($cpassword, PASSWORD_BCRYPT);
 
+        // verification
+        $verpass = password_verify($password, $pass);
+        $confirmverifypass = password_verify($cpassword, $cpass);
+
         $emailQuery = "SELECT * FROM reg WHERE email = '$email'";
         $regQuery = mysqli_query($conn, $emailQuery);
         $emailCount = mysqli_num_rows($regQuery);
 
-        if ($emailCount > 0) {
-            echo "Email already exists";
+
+
+        if ($emailCount) {
+            echo "email already exist";
         } else {
-            if ($pass == $cpass) {
+            if ($verpass === $confirmverifypass) {
+                $insertQury = "INSERT INTO reg( username, email, mobile, password, cpassword) VALUES ('$username','$email','$mobile','$pass','$cpass')";
+                $iqury = mysqli_query($conn, $insertQury);
+
+                if ($iqury) {
+    ?>
+                    <script>
+                        alert('Inserted hogya bacho');
+                    </script>
+                <?php
+                } else {
+                ?>
+                    <script>
+                        alert('Inserted Mahi howa bacho');
+                    </script>
+                <?php
+                }
+            } else {
+                ?>
+                <script>
+                    alert('Password are not matched');
+                </script>
+    <?php
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+        /*   // verification
+        $verpass = password_verify($password, $pass);
+        $confirmverifypass = password_verify($cpassword, $cpass);
+ */
+
+
+
+
+        /*       else {
+            if ($verpass == $confirmverifypass) {
                 $insertQury = "INSERT INTO reg( username, email, mobile, password, cpassword) VALUES ('$username','$email','$mobile','$pass','$cpass')";
                 $iqury = mysqli_query($conn, $insertQury);
 
@@ -48,7 +98,7 @@
             } else {
                 echo "Password not Matching";
             }
-        }
+        } */
     }
 
 
