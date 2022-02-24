@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['username'])) {
+    echo "you are loged out ";
+    header('location:login.php');
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +29,9 @@ session_start();
                     <div class="card text-black" style="border-radius: 25px;">
                         <div class="card-body p-md-5">
                             <div class="row justify-content-center">
+                                <div class="d-flex justify-content-left mx-4 mb-3 mb-lg-4">
+                                    <a href="logout.php"> <button type="submit" name="submit" class="btn btn-primary btn-lg">Logout</button> </a>
+                                </div>
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Home</p>
