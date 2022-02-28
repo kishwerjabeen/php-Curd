@@ -5,7 +5,7 @@ $password = "";
 $db = "curdphp";
 
 // Create connection
-//$conn = mysqli_connect($servername, $username, $password, $db);
+// $conn = mysqli_connect($servername, $username, $password, $db);
 $conn = new mysqli($servername, $username, $password, $db);
 
 /* if ($conn) {
@@ -17,8 +17,8 @@ $conn = new mysqli($servername, $username, $password, $db);
 <?php
 } else {
     // echo "connection Mahe howa bacho";
-    // die("connection nahe howa bacho" . mysqli_connect_error());
-    die("connection nahe howa bacho" . $conn->connect_error);
+    die("connection nahe howa bacho" . mysqli_connect_error());
+    // die("connection nahe howa bacho" . $conn->connect_error);
 
 
 } */

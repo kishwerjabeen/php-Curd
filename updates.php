@@ -33,7 +33,9 @@
 
             // $res = mysqli_query($conn, $insertquery);
 
-            $res = mysqli_query($conn, $updateQuery);
+            // $res = mysqli_query($conn, $updateQuery);
+
+            $res = $conn->query($updateQuery);
 
 
 
@@ -42,7 +44,10 @@
                 <script>
                     alert("Data Update Hogya ha Yaaaa");
                 </script>
+
             <?php
+
+                header('location:display.php');
             } else {
             ?>
                 <script>
