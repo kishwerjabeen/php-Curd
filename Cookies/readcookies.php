@@ -1,4 +1,3 @@
 <?php
 
-$_COOKIE['']
-?>
+echo $_COOKIE['phpusser'];
