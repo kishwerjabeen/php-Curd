@@ -63,7 +63,7 @@ while ($i < 10) {
 
  */
 
-                    while ($res = mysqli_fetch_array($query)) {
+                    while ($res = mysqli_fetch_assoc($query)) {
                         // echo $res['firname'] . "<br>";
                     ?>
                         <tr>

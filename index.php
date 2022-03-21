@@ -58,33 +58,48 @@
 <?php
 include 'conn.php';
 if (isset($_POST['submit'])) {
-    $name = $_POST['user'];
-    $quli = $_POST['deg'];
-    $number = $_POST['mobile'];
-    $email = $_POST['email'];
-    $ref = $_POST['ref'];
-    $jobs = $_POST['jobpro'];
+    $name = mysqli_real_escape_string($conn, $_POST['user']);
+    $quli = mysqli_real_escape_string($conn, $_POST['deg']);
+    $number = mysqli_real_escape_string($conn, $_POST['mobile']);
+    $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $ref = mysqli_real_escape_string($conn, $_POST['ref']);
+    $jobs = mysqli_real_escape_string($conn, $_POST['jobpro']);
 
-    $insertquery = "INSERT INTO jobreg (firname, degree, mobile, email, refer, jobpost) VALUES ('$name','$quli','$number','$email','$ref','$jobs')";
-
-
-
-    $res = mysqli_query($conn, $insertquery);
+    /*     $insertquery = "INSERT INTO jobreg (firname, degree, mobile, email, refer, jobpost) VALUES ('$name','$quli','$number','$email','$ref','$jobs')";
+ */
 
 
 
-    if ($res) {
+
+    $emailQuery = "SELECT * FROM reg WHERE email = '$email'";
+    $res = mysqli_query($conn, $emailQuery);
+    $emailCount = mysqli_num_rows($res);
+
+
+    if ($emailCount > 0) {
 ?>
         <script>
-            alert("Data Insert Hogya ha Yaaaa");
+            alert("email already exist");
         </script>
-    <?php
+        <?php
+
     } else {
-    ?>
-        <script>
-            alert("Data Insert Hogya ha Yaaaa");
-        </script>
+        $insertquery = "INSERT INTO jobreg (firname, degree, mobile, email, refer, jobpost) VALUES ('$name','$quli','$number','$email','$ref','$jobs')";
+        $iqury = mysqli_query($conn, $insertquery);
+        if ($iqury = true) {
+        ?>
+            <script>
+                alert("Data Insert Hogya ha Yaaaa");
+            </script>
+        <?php
+        } else {
+
+        ?>
+            <script>
+                alert("Data Insert nae howa");
+            </script>
 <?php
+        }
     }
 }
 ?>
