@@ -1,3 +1,13 @@
+<?php
+session_start();
+$message = '';
+if (isset($_SESSION['email_alert'])) {
+    $message = 'Email Id Already Exixt!';
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +20,7 @@
 
     <div class="container mt-3">
         <h2>Stacked form</h2>
+        <h2><?php echo $message; ?></h2>
         <form action="index.php" method="POST">
 
             <div class="mb-3">
@@ -50,7 +61,7 @@
         <br>
         <a href="display.php" class="btn btn-success btn-block">Display</a>
     </div>
-
+    <?php unset($_SESSION['email_alert']); ?>
 </body>
 
 </html>
@@ -77,17 +88,20 @@ if (isset($_POST['submit'])) {
 
 
     if ($emailCount > 0) {
-?>
+
+        $_SESSION['email_alert'] = '1';
+
+
+        /* ?>
         <script>
             alert("email already exist");
         </script>
-        <?php
-
+        <?php */
     } else {
         $insertquery = "INSERT INTO jobreg (firname, degree, mobile, email, refer, jobpost) VALUES ('$name','$quli','$number','$email','$ref','$jobs')";
         $iqury = mysqli_query($conn, $insertquery);
-        if ($iqury = true) {
-        ?>
+        if ($iqury == true) {
+?>
             <script>
                 alert("Data Insert Hogya ha Yaaaa");
             </script>
