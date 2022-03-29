@@ -51,11 +51,14 @@
                 if ($iqury) {
                     $to_email = "kishwarjabeen2020@gmail.com";
                     $subject = "Email Activation";
-                    $body = "Hi,  $username . Click here to activate your account";
-                    $headers = "Form : codingtest20222022@gmail.com";
+                    $body = "Hi,  $username . Click here to activate your account 
+                    http://localhost/php-curd/email-reg/activate.php?token=$token";
+                    $sender_email = "Form : codingtest20222022@gmail.com";
 
-                    if (mail($to_email, $subject, $body, $headers)) {
-                        echo "Email successfully sent to $to_email...";
+                    if (mail($to_email, $subject, $body, $sender_email)) {
+                        /*  echo "Email successfully sent to $to_email..."; */
+                        $_SESSION['msg'] = "Check your email to activate your account $email";
+                        header('location:login.php');
                     } else {
                         echo "Email sending failed...";
                     }
