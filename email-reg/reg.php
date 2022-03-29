@@ -49,13 +49,18 @@
                 $iqury = mysqli_query($conn, $insertQury);
 
                 if ($iqury) {
-    ?>
-                    <script>
-                        alert('Inserted hogya bacho');
-                    </script>
-                <?php
+                    $to_email = "kishwarjabeen2020@gmail.com";
+                    $subject = "Email Activation";
+                    $body = "Hi,  $username . Click here to activate your account";
+                    $headers = "Form : codingtest20222022@gmail.com";
+
+                    if (mail($to_email, $subject, $body, $headers)) {
+                        echo "Email successfully sent to $to_email...";
+                    } else {
+                        echo "Email sending failed...";
+                    }
                 } else {
-                ?>
+    ?>
                     <script>
                         alert('Inserted Mahi howa bacho');
                     </script>
