@@ -21,7 +21,7 @@ if (!empty($_SESSION['msg']))
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-        $emailQuery = "SELECT * FROM emailreg WHERE email = '$email'";
+        $emailQuery = "SELECT * FROM emailreg WHERE email = '$email' and status='active'";
         $siguery = mysqli_query($conn, $emailQuery);
         $emailCount = mysqli_num_rows($siguery);
 
