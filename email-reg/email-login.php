@@ -1,7 +1,8 @@
 <?php
+
 session_start();
 
-
+if (!empty($_SESSION['msg']))
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ session_start();
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-        $emailQuery = "SELECT * FROM reg WHERE email = '$email'";
+        $emailQuery = "SELECT * FROM emailreg WHERE email = '$email'";
         $siguery = mysqli_query($conn, $emailQuery);
         $emailCount = mysqli_num_rows($siguery);
 
@@ -38,12 +39,9 @@ session_start();
 
     ?>
                 <script>
-                    location.replace("home.php")
+                    location.replace("email-home.php")
                 </script>
     <?php
-
-
-
             } else {
                 echo "Password Incorrect";
             }
@@ -78,6 +76,23 @@ session_start();
                                     <br>
                                     <p class="text-center h4">or</p>
                                     <hr>
+                                    <div>
+                                        <p class="bg-success text-white px-4"> <?php
+
+                                                                                /*      if (!isset($_SESSION['msg']))
+                                                                                    if ($_SESSION['msg'] != NULL) {
+                                                                                        echo $_SESSION['msg'];
+                                                                                    } */
+
+
+                                                                                echo  $msg = $_SESSION['msg'];
+
+
+
+                                                                                ?> </p>
+                                    </div>
+
+
                                     <form class="mx-1 mx-md-4" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
 
 
@@ -96,7 +111,7 @@ session_start();
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" id="form3Example4c" class="form-control" name="password" value="" required />
-                                                <label class="form-label" for="form3Example4c">Password</label>
+                                                <label class="form-label" for="form3Example4c"> Enter your Password</label>
                                             </div>
                                         </div>
 

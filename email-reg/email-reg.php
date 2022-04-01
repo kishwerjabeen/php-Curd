@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 ?>
 
@@ -49,16 +50,18 @@
                 $iqury = mysqli_query($conn, $insertQury);
 
                 if ($iqury) {
-                    $to_email = "kishwarjabeen2020@gmail.com";
+                    /*    $to_email = "kishwarjabeen2020@gmail.com"; */
                     $subject = "Email Activation";
                     $body = "Hi,  $username . Click here to activate your account 
                     http://localhost/php-curd/email-reg/activate.php?token=$token";
                     $sender_email = "Form : codingtest20222022@gmail.com";
 
-                    if (mail($to_email, $subject, $body, $sender_email)) {
+                    if (mail($email, $subject, $body, $sender_email)) {
                         /*  echo "Email successfully sent to $to_email..."; */
-                        $_SESSION['msg'] = "Check your email to activate your account $email";
-                        header('location:login.php');
+
+                        $_SESSION['msg'] = "Check your email to activate your account . $email";
+
+                        header('location:email-login.php');
                     } else {
                         echo "Email sending failed...";
                     }
@@ -157,7 +160,7 @@
                                         </div>
 
                                     </form>
-                                    <p>Have an Account <a href="login.php">Login</a></p>
+                                    <p>Have an Account <a href="email-login.php">Login</a></p>
                                 </div>
 
                                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
