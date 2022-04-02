@@ -83,9 +83,13 @@ if (!empty($_SESSION['msg']))
                                                                                     if ($_SESSION['msg'] != NULL) {
                                                                                         echo $_SESSION['msg'];
                                                                                     } */
+                                                                                if (isset($_SESSION['msg'])) {
+                                                                                    echo  $_SESSION['msg'];
+                                                                                } else {
+                                                                                    echo  $_SESSION['msg'] = "You are logout Please login again . ";
+                                                                                }
 
 
-                                                                                echo  $msg = $_SESSION['msg'];
 
 
 

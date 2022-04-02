@@ -30,7 +30,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="card-body p-md-5">
                             <div class="row justify-content-center">
                                 <div class="d-flex justify-content-left mx-4 mb-3 mb-lg-4">
-                                    <a href="logout.php"> <button type="submit" name="submit" class="btn btn-primary btn-lg">Logout</button> </a>
+                                    <a href="email-login.php"> <button type="submit" name="submit" class="btn btn-primary btn-lg">Logout</button> </a>
                                 </div>
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 

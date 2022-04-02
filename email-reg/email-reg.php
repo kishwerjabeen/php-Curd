@@ -108,7 +108,8 @@ session_start();
                                     </div>
                                     <br>
                                     <br>
-                                    <form class="mx-1 mx-md-4" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+                                    <form class="mx-1 mx-md-4" action="<?php echo htmlentities($_SERVER['PHP_SELF']);
+                                                                        ?>" method="POST">
 
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
